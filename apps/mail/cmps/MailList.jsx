@@ -28,6 +28,7 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
         // problem:
         // how to create component
         //
+        //setIsNewMail()
     }
 
     return (
@@ -55,7 +56,7 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
                 unread email: {countUnRead}
             </p>
             <p>
-                <button onClick={() => onAddMail(mail.id)} >
+                <button onClick={() => onAddMail()} >
                             Create mail
                         </button>
             </p>
