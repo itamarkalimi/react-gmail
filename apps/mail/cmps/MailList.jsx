@@ -2,7 +2,7 @@ const { useState, useEffect, Fragment } = React
 import MailPreview from '../cmps/MailPreview.jsx'
 import { About } from './pages/About.jsx'
 import { mailService } from "../services/mail.service.js"
-
+import SendMail from '../cmps/SendMail.jsx'
 // DOM:
 // list of pre mail
 
@@ -11,7 +11,7 @@ import { mailService } from "../services/mail.service.js"
 
 function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, countUnRead, onCountRead, onUnCountRead, onRemoveMail}) {
     
-
+    const [isAddMail, setIsNewMail] = useState(false)
     // task:
     // analyze the data
     // paramter - mailId
@@ -25,11 +25,19 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
         // render component in a new
         // move to a new page
 
-        // problem:
-        // how to create component
-        //
-        //setIsNewMail()
+        // problem-algorithem:
+        // update state data
+        // render component accourding to data model state
+        
+        setIsNewMail(true)
     }
+
+    // algorithem:
+    // boolean state
+    // import component
+    // 
+
+
 
     return (
         <div>
@@ -59,6 +67,9 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
                 <button onClick={() => onAddMail()} >
                             Create mail
                         </button>
+            </p>
+            <p>
+             {isAddMail && <SendMail />}
             </p>
         </div>
     )

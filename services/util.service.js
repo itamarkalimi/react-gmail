@@ -12,32 +12,32 @@ export const utilService = {
 
 const mail = [{ 
   id: 'e101', 
-  createdAt : 1551133930500, 
-  subject: 'Miss you 1!', 
+  createdAt : 2, 
+  subject: 'Hi you 1!', 
   body: 'Would love to catch up sometimes 1', 
   isRead: false, 
-  sentAt : 1551133930594, 
+  sentAt : 20, 
   removedAt : null, 
   from: 'momo@momo.com', to: 'user@appsus.com' 
 },
 { 
   id: 'e102', 
-  createdAt : 1551133930500, 
+  createdAt : 1, 
   subject: 'Miss you 2!', 
   body: 'Would love to catch up sometimes 2', 
   isRead: false, 
-  sentAt : 1551133930594, 
+  sentAt : 10, 
   removedAt : null, 
   from: 'momo@momo.com', to: 'user@appsus.com' 
 }
 ,
 { 
   id: 'e103', 
-  createdAt : 1551133930500, 
-  subject: 'Miss you 3!', 
+  createdAt : 3, 
+  subject: 'oh you 3!', 
   body: 'Would love to catch up sometimes 3', 
   isRead: true, 
-  sentAt : 1551133930594, 
+  sentAt : 30, 
   removedAt : null, 
   from: 'momo@momo.com', to: 'user@appsus.com' 
 }]

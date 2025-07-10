@@ -6,7 +6,7 @@ const { useState, useEffect, Fragment } = React
 // ok - filterObj is created
 
 function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCheck,isReadRedioCheck,isUnReadRedioCheck }) {
-     // task:
+    // task:
     // update filterObj
     // change read unread
   
@@ -14,6 +14,8 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterObj })
     
+    // problem:
+    // check what is the data type in filerObj
 
      // update filterObj
     // - every change of state - active function
@@ -26,6 +28,34 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
      const { txt } = filterByToEdit
      // - get data from form
     // - update state
+
+
+    function handleCheckboxChangeSubject({ target }) {
+
+    const field = target.name
+
+    console.log('field:', target.checked);
+    console.log('Checked:', target.checked); // logs true or false
+    setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: target.checked }))
+    }
+
+    function handleCheckboxChangeDate({ target }) {
+
+    const field = target.name
+    console.log('field:', target.checked);
+    console.log('Checked:', target.checked);
+    let value = target.checked 
+
+    // problem:
+    // take the data to filterObj
+
+    // active sort function
+    // active query param
+
+    // logs true or false
+    setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value}))
+
+    }
 
 
     function handleChange({ target }) { 
@@ -68,16 +98,16 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
         // update state
          // goal: update filter object
     }
+ 
 
-    // get data from form
+    // title:
+    // active sort function 
     
-    // problem:
-    // g
+    // problem: what is the sort data
 
-    // problem:
-    // compare filter data read to check statues
+    // get the data with event function
+    // update filter state obj
 
-    // need data id ischeck
 
     return (
         <section className="book-filter container">
@@ -86,11 +116,26 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
             <form>               
                 <label htmlFor="txt">Search anything</label>
                 <input onChange={handleChange} value={txt} name="txt" id="txt" type="text" />
- 
-            </form>
+       <label>
+        <label >sortBySubject</label>
+        <input
+          type="checkbox"
+          name="sortBySubject"
+          //checked={isSubscribed}
+          onChange={handleCheckboxChangeSubject}
+        />
+        <label>sortByDate</label>
+        <input
+          type="checkbox"
+          name="sortByDate"
+          //checked={isSubscribed}
+          onChange={handleCheckboxChangeDate}
+        />
+      </label>
 
-            <form> 
+    </form>
  
+  
   <label>
     <input type="radio" onChange={handleChange}  name="read" value="read"  
     checked={isReadRedioCheck === true}
@@ -105,8 +150,7 @@ checked={isUnReadRedioCheck === true}
     Unread
   </label> 
 
- </form>
-
+ 
             </section>
     )
 }

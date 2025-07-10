@@ -1,7 +1,9 @@
 ארכיטקטורת סרביס:
 לטעון מידע בלוקל
 useeffect 
-loadData - loadMails
+loadData - loadMails 
+promise
+array filter or manipolation
 data to state
 
 בעיה:

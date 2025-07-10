@@ -66,6 +66,19 @@ function mailQuery(filterBy) {
                 )
              }
 
+            if (filterBy.sortByDate) {
+              // how to compare
+               console.log('enter filterBy.sortByDate')
+              mails = mails.sort((a, b) => a.createdAt - b.createdAt);
+            } 
+
+             if (filterBy.sortBySubject) {
+              console.log('enter filterBy.sortBySubject')
+                mails = mails.sort((a, b) => 
+                a.subject.toLowerCase().localeCompare(b.subject.toLowerCase())
+                );
+             }
+
             if (!filterBy.isRead) {
               // how to compare
                
@@ -90,10 +103,13 @@ function remove(mailId) {
     return storageService.remove(DATA_KEY, mailId)
 }
 
+// what is the goal
 function getDefaultFilter() {
   return { 
       status: 'inbox/sent/trash/draft', 
       txt: '',  
+      sortByDate: false,
+      sortBySubject: false,
       isRead: false,  
       isStared: false,  
       lables: ['important', 'romantic'] 

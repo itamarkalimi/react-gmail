@@ -22,8 +22,8 @@ function MailIndex() {
 
 
     function onRemoveMail(mailId) {
-      console.log('enter onRemoveMail')
-        mailService.remove(mailId)
+
+      mailService.remove(mailId)
             .then(() => {
                 setMails(mails => mails.filter(mail => mail.id !== mailId))
             })
@@ -33,7 +33,7 @@ function MailIndex() {
     }
 
   useEffect(() => {
-    
+    console.log('loadMails active')
     loadMails()
    }, [filterBy, isReadRedioCheck, isUnReadRedioCheck])
    
@@ -42,9 +42,16 @@ function MailIndex() {
     setCountUnRead(0)
    }, [isReadRedioCheck, isUnReadRedioCheck])
 
+
+   // note:
+   // check the data in filter
+   // data need to boolean
   function loadMails() {
      mailService.mailQuery(filterBy)
-      .then(mails => setMails(mails)   
+      .then(mails => {
+        console.log('mails list' ,mails)
+        setMails(mails)
+      }  
       )
       .catch(err => console.log('err:', err))
   }
@@ -85,7 +92,7 @@ function MailIndex() {
    // i need to know what to pass
    //
    return (
-    <Fragment>
+    <div class="main">
         <MailFilter 
         filterObj={filterBy}
         onSetFilter={onSetFilter}
@@ -106,7 +113,7 @@ function MailIndex() {
         countUnRead={countUnRead}
         onRemoveMail={onRemoveMail}
       />
-    </Fragment>
+    </div>
   )
 }
 
