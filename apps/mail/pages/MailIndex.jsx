@@ -1,6 +1,6 @@
 const { useState, useEffect, Fragment } = React
 import MailFilter  from '../cmps/MailFilter.jsx'
- 
+import { MailDetails } from '../cmps/MailDetails.jsx'
 import MailList from '../cmps/MailList.jsx'
 import { mailService } from "../services/mail.service.js"
 
@@ -92,7 +92,7 @@ function MailIndex() {
    // i need to know what to pass
    //
    return (
-    <div class="main">
+    <div className="main">
         <MailFilter 
         filterObj={filterBy}
         onSetFilter={onSetFilter}

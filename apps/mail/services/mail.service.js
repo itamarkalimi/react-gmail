@@ -18,7 +18,8 @@ import { loadFromStorage, makeId, saveToStorage } from "../../../services/util.s
 export const mailService = {
     mailQuery,
     getDefaultFilter,
-    remove
+    remove,
+    get
 }
    
 // problem:
@@ -117,10 +118,12 @@ function getDefaultFilter() {
 }
     
 
-// function get(mailId) {
-//     return storageService.get(KEY, mailId)
-//         .then(_setNextPrevBookId)
-// }
+function get(mailId) {
+  console.log('storageService.get')
+    return storageService.get(DATA_KEY, mailId)
+    // what is _setNextPrevBookId
+       
+}
 
 // function remove(mailId) {
 //     // return Promise.reject('Oh No!')

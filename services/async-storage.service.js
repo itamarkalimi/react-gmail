@@ -20,7 +20,7 @@ function query(entityType, delay = 500) {
 }
 
 
-
+// return mail
 function get(entityType, entityId) {
     return query(entityType).then(entities => {
 

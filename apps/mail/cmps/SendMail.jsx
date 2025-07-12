@@ -13,6 +13,9 @@ function SendMail() {
   return (
         <div className="mail-comp">
           send mail
+          <form>
+            
+          </form>
         </div>
     )
 }

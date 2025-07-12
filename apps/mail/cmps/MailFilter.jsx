@@ -90,8 +90,7 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
             case 'text':
                 value = target.value
 
-                break
-                
+                break       
         }
 
          setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
@@ -110,13 +109,17 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
 
 
     return (
-        <section className="book-filter container">
-            <h2>Filter Our Emails</h2>
+        <section className="filter-container">
+                <button onClick={() => onAddMail()} >
+                            Create mail
+                        </button>
+          
 
             <form>               
                 <label htmlFor="txt">Search anything</label>
                 <input onChange={handleChange} value={txt} name="txt" id="txt" type="text" />
-       <label>
+                </form>
+       <form>
         <label >sortBySubject</label>
         <input
           type="checkbox"
@@ -131,11 +134,8 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
           //checked={isSubscribed}
           onChange={handleCheckboxChangeDate}
         />
-      </label>
-
-    </form>
- 
-  
+      </form>
+  <form>
   <label>
     <input type="radio" onChange={handleChange}  name="read" value="read"  
     checked={isReadRedioCheck === true}
@@ -149,7 +149,7 @@ checked={isUnReadRedioCheck === true}
     name="unread" value="unread" />
     Unread
   </label> 
-
+</form>
  
             </section>
     )

@@ -12,6 +12,100 @@
 @import './apps/mail/MailIndex.css';
 @import './apps/mail/MailList.css';
 
+* {
+    box-sizing: border-box;
+}
+
 .main {
   display: grid;
+  border: 1px solid black;
+  grid-template-rows: 100px auto;
+}
+
+/*
+problem:
+what are the sub elements
+how to design the elements
+
+// problem:
+what is the top design of element in grid
+how to define repeat
+
+// problem:
+check the sub element
+
+// probem:
+// i have top el
+// i need to define sub el as div
+
+-problem:
+how to grit col
+
+-next:
+nav bar with flex
+
+-problem: what does flex does?
+check what is the functionalty of flex:
+
+-problem:
+design the navbar
+define the elements
+
+-problem:
+define with and height
+
+-problem:
+list
+-filter
+// list
+style preview
+
+-problem:
+develop react comp for sidebar
+
+-design nav::after
+button
+search
+
+-design preview
+אלמנטים
+פלקס
+גובה
+*/
+
+.filter-container {
+   border: 1px solid red;
+   display: flex;
+   justify-content: flex-start;
+   height: 60px;
+}
+
+.filter-container > *{
+   border: 1px solid aqua;
+   padding:5px;
+   margin: 5px 200px 0 0;
+   width: 150px;
+   height: 50px;
+}
+
+.list-container {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.list-container > * {
+  border: 1px solid magenta;
+}
+
+.mail-preview {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.mail-preview > * {
+  margin: 0 100px 0 0;
+  padding: 5px;
 }

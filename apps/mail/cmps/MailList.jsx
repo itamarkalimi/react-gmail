@@ -40,7 +40,7 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
 
 
     return (
-        <div>
+        <div className='list-container'>
             {mailsList ? <ul className="mail-list container">
                 {mailsList.map(mail =>
                     <li key={mail.id}>
@@ -50,10 +50,9 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
                         mail={mail} 
                         onCountRead={onCountRead}
                         onUnCountRead={onUnCountRead}
+                        onRemoveMail={onRemoveMail}
                          />
-                         <span><button onClick={() => onRemoveMail(mail.id)} >
-                            Remove
-                        </button></span>
+                         
                     </li>
                 )}
             </ul> : `no emails`}
@@ -63,11 +62,7 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
             <p>
                 unread email: {countUnRead}
             </p>
-            <p>
-                <button onClick={() => onAddMail()} >
-                            Create mail
-                        </button>
-            </p>
+            
             <p>
              {isAddMail && <SendMail />}
             </p>
