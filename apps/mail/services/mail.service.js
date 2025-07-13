@@ -19,7 +19,8 @@ export const mailService = {
     mailQuery,
     getDefaultFilter,
     remove,
-    get
+    get,
+    createMail
 }
    
 // problem:
@@ -115,6 +116,13 @@ function getDefaultFilter() {
       isStared: false,  
       lables: ['important', 'romantic'] 
 }
+}
+
+function createMail() {
+  return { 
+      subject: '', 
+      body: '', 
+  }
 }
     
 

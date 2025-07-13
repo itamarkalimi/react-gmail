@@ -9,28 +9,8 @@ import SendMail from '../cmps/SendMail.jsx'
 // problem:
 // do i get an array - { mails }
 
-function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, countUnRead, onCountRead, onUnCountRead, onRemoveMail}) {
-    
-    const [isAddMail, setIsNewMail] = useState(false)
-    // task:
-    // analyze the data
-    // paramter - mailId
-    // delete data from local
-
-    // problem: what do i get? what is the data?
-    // 
-    function onAddMail() {
-        // algorithem:
-        // get data from form
-        // render component in a new
-        // move to a new page
-
-        // problem-algorithem:
-        // update state data
-        // render component accourding to data model state
-        
-        setIsNewMail(true)
-    }
+function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, countUnRead, onCountRead, onUnCountRead, onRemoveMail, isAddMail}) {
+     
 
     // algorithem:
     // boolean state
@@ -64,10 +44,9 @@ function MailList({ mailsList, isReadRedioCheck , isUnReadRedioCheck,countRead, 
             </p>
             
             <p>
-             {isAddMail && <SendMail />}
+             
             </p>
         </div>
     )
 }
-
 export default MailList

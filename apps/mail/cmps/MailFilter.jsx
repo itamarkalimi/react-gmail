@@ -5,14 +5,14 @@ const { useState, useEffect, Fragment } = React
 
 // ok - filterObj is created
 
-function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCheck,isReadRedioCheck,isUnReadRedioCheck }) {
+function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCheck,isReadRedioCheck,isUnReadRedioCheck ,onAddMail}) {
     // task:
     // update filterObj
     // change read unread
   
     
+      const [filterByToEdit, setFilterByToEdit] = useState({ ...filterObj })
 
-    const [filterByToEdit, setFilterByToEdit] = useState({ ...filterObj })
     
     // problem:
     // check what is the data type in filerObj
@@ -54,7 +54,6 @@ function MailFilter({ filterObj, onSetFilter,onUnReadRedioCheck, onIsReadRedioCh
 
     // logs true or false
     setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value}))
-
     }
 
 

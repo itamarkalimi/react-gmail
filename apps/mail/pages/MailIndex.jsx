@@ -3,15 +3,28 @@ import MailFilter  from '../cmps/MailFilter.jsx'
 import { MailDetails } from '../cmps/MailDetails.jsx'
 import MailList from '../cmps/MailList.jsx'
 import { mailService } from "../services/mail.service.js"
+import SendMail from '../cmps/SendMail.jsx'
 
 function MailIndex() {
   const [mails, setMails] = useState(null)
   const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
- const [isReadRedioCheck, setIsReadRedioCheck] = useState(false)
+  const [isReadRedioCheck, setIsReadRedioCheck] = useState(false)
     const [isUnReadRedioCheck, setIsUnReadRedioCheck] = useState(false)
     const [countRead, setCountRead] = useState(0)
       const [countUnRead, setCountUnRead] = useState(0)
+      
+    const [isAddMail, setIsNewMail] = useState(false)
     
+    function onAddMail() {
+        console.log('onAddMail')
+        setIsNewMail(true)
+        console.log('isAddMail', isAddMail)
+    }
+    console.log('isAddMail 2', isAddMail)
+
+    // problem:
+    // how do pass the funcion 
+
       function onCountRead() {
             setCountRead(prevCount => prevCount + 1)
       }
@@ -100,6 +113,7 @@ function MailIndex() {
         onIsReadRedioCheck={onIsReadRedioCheck}
         isReadRedioCheck={isReadRedioCheck}
         isUnReadRedioCheck={isUnReadRedioCheck}
+        onAddMail={onAddMail}
         />
       <MailList 
       mailsList={mails} 
@@ -113,6 +127,7 @@ function MailIndex() {
         countUnRead={countUnRead}
         onRemoveMail={onRemoveMail}
       />
+      {isAddMail && <SendMail />}
     </div>
   )
 }
